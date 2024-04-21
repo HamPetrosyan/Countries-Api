@@ -6,11 +6,19 @@ const Region = ({
   showDropdown,
   handleRegionClick,
 }) => {
+  const handleBlur = () => {
+    setTimeout(() => {
+      setShowDropdown(false);
+    }, 0.5);
+  };
+
   return (
     <div className="relative">
       <div
         className="border p-2 rounded-md cursor-pointer"
         onClick={() => setShowDropdown(!showDropdown)}
+        onBlur={handleBlur}
+        tabIndex="0"
       >
         {dropdownText}
       </div>
